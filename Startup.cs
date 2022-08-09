@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using System;
 using WebApi.Authorization;
 using WebApi.Helpers;
@@ -36,6 +37,15 @@ namespace WebApi
 
             services.AddCors();
             services.AddControllers();
+            services.AddSwaggerGen(options =>
+            {
+                options.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "WebApi-6-JWT-CoreApplication API",
+                    Description = "An ASP.NET Core API for registration and authentication"
+                });
+            });
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             // configure strongly typed settings objects
@@ -51,6 +61,26 @@ namespace WebApi
         {
             // migrate any database changes on startup (includes initial db creation)
             dataContext.Database.Migrate();
+
+            if (env.IsDevelopment())
+            {   
+                // By default, Swashbuckle generates and exposes Swagger JSON in version 3.0 of the specification—officially
+                // called the OpenAPI Specification. To support backwards compatibility, you can opt into exposing JSON
+                // in the 2.0 format instead. This 2.0 format is important for integrations such as Microsoft Power Apps
+                // and Microsoft Flow that currently support OpenAPI version 2.0. To opt into the 2.0 format, set the
+                // SerializeAsV2 property
+                app.UseSwagger(options =>
+                {
+                    options.SerializeAsV2 = true;
+                });
+                // to serve the Swagger UI at the app's root (https://localhost:<port>/),
+                // set the RoutePrefix property to an empty string
+                app.UseSwaggerUI(options =>
+                {
+                    options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+                    options.RoutePrefix = string.Empty;
+                });
+            }
 
             app.UseRouting();
 

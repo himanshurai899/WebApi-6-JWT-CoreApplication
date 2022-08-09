@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Development\\Learning\\dotnet-5-registration-login-api-master\\WebApi.csproj": {}
+    "D:\\Development\\Learning\\WebAPI-6-JWT\\WebApi.csproj": {}
   },
   "projects": {
-    "D:\\Development\\Learning\\dotnet-5-registration-login-api-master\\WebApi.csproj": {
+    "D:\\Development\\Learning\\WebAPI-6-JWT\\WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Development\\Learning\\dotnet-5-registration-login-api-master\\WebApi.csproj",
+        "projectUniqueName": "D:\\Development\\Learning\\WebAPI-6-JWT\\WebApi.csproj",
         "projectName": "WebApi",
-        "projectPath": "D:\\Development\\Learning\\dotnet-5-registration-login-api-master\\WebApi.csproj",
+        "projectPath": "D:\\Development\\Learning\\WebAPI-6-JWT\\WebApi.csproj",
         "packagesPath": "C:\\Users\\himanshu.rai\\.nuget\\packages\\",
-        "outputPath": "D:\\Development\\Learning\\dotnet-5-registration-login-api-master\\obj\\",
+        "outputPath": "D:\\Development\\Learning\\WebAPI-6-JWT\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
@@ -78,6 +78,10 @@
               "target": "Package",
               "version": "[5.0.6, )"
             },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.2.3, )"
+            },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
               "version": "[6.11.0, )"
@@ -89,7 +93,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -101,7 +106,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
